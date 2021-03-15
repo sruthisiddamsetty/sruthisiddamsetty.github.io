@@ -1,0 +1,82 @@
+/* gc*/
+body {
+  margin: 0;
+  font: 12px sans-serif;
+  width: 800px;
+  border: 5px solid #000000;
+  margin: auto;
+  margin-top: 1px;
+  box-shadow: 5px 15px 20px 5px;
+    background-color: white;
+}
+
+header{
+  background-color: orange;
+  background-image: linear-gradient(45deg, white, orange 75%, black);
+  border-bottom: 3px solid #000000;
+}
+#left{
+  float: left;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#head1{
+  font-size: 300%;
+  margin: 0px;
+  padding-top: 15px;
+}
+
+#head2
+{
+	padding-bottom: 0px;
+  margin-top: 5px;
+  font-size: 175%;
+}
+
+main{
+  
+  background-color: white;
+    
+    height: 450px;   /* to give the sidebar some height                           for its border */
+    width: 550px;
+    float: right;
+    
+
+}
+#mainhead::first-letter {
+  font-size: 200%;
+  color: black;
+}
+
+a
+{
+	color: orange;
+  font-weight:bold;
+}
+
+aside {
+    width: 160px;
+    float: left; }
+a:hover
+{
+	color:green;
+}
+
+footer
+{
+    clear:both;
+	text-align: center;
+  background-color: orange;
+  border-top: 3px solid #000000;
+  background-image: linear-gradient(45deg, black, orange 75%, white);
+  padding: 3px;
+}
+.straight{
+    clear: both
+}
+ul li
+{
+    margin: 1px;
+}
+
