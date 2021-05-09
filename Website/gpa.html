@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  var val = 2;
+  function addcourse() {
+    var markup="";
+    markup = "<tr><td><input class='inputItem creditH' type='number' id=credithours name=chreditH[] placeholder=Credit" + "Hours></td>";
+      markup= markup+"<td><select  class='inputItem grades' name=grades[][] id=grade>" +
+       "<option value></option>" +
+      "<option value=4.0>A</option>" +
+      "<option value=3.0>B</option>" +
+      "<option value=2.0>C</option>" +
+      "<option value=1.0>D</option>" +
+      "<option value=0>F</option>" +
+      "</select></td></tr>";
+      $('table tr:last').prev().before(markup);
+  }
+
+  function calculateGPS() {
+    chreditH = [];
+    grade = [];
+    chrSum = 0;
+    GPointsnum = 0;
+    credithrs = $(".creditH");
+    gradepoints = $(".grades");
+    for (var i = 0; i < credithrs.length; i++) {
+      chreditH[i] = parseInt(credithrs[i].value);
+      chrSum += parseInt(chreditH[i]);
+    }
+    for (var i = 0; i < gradepoints.length; i++) {
+      grade[i] = parseInt(gradepoints[i].value);
+    }
+    for (var i = 0; i < gradepoints.length; i++) {
+      GPointsnum += chreditH[i] * grade[i];
+    }
+    gpa = GPointsnum / chrSum;
+    $("#res").html("<td colspan=2 style=text-align:center>GPA Is : " + gpa.toFixed(2) + "</td>");
+  }
+</script>
+<style>
+  .LogoClass {
+    width: 200px;
+    border-radius: 17px;
+    background: #fff;
+    margin-top: 14px;
+    height: 64px;
+  }
+
+  .menu-list {
+    float: right;
+    display: inline-block;
+    text-align: right;
+    right: 5px;
+    height: 85px;
+  }
+</style>
+
+<body>
+  <nav class="nav-content">
+    <div class="nav-logo">
+      <a href="home.html">
+        <img src="./images/headerlogo.PNG" class="LogoClass">
+      </a>
+    </div>
+
+    <div class="menu-list">
+      <ul id="menu1">
+        <li><a href='#'>Customer Service</a></li>
+        <li><a href='#'> 1-800-221-5528</a></li>
+        <li><a href='#'>My Account |</a></li>
+        <li><a href='#'>My Cart(1)</a></li>
+      </ul>
+      <ul id="menu1">
+        <li><a href='#'><i class="fa fa-home"></i> </a></li>
+        <li><a href='#'>Contact us</a></li>
+        <li><a href='#'><input type="text" placeholder="Search..."><i class="fa fa-search"></i></a></li>
+      </ul>
+      <ul id="menu">
+        <li><a href='home.html'>Home</a></li>
+        <li><a href='Computer.html'>Computer Service</a></li>
+        <li><a href='TeachingAssistant.html'>Teaching Assistant</a></li>
+        <li><a href='ebooks.html'>About Our eBooks</a></li>
+        <li><a href='gpa.html'> GPA calculation</a></li>
+        <li><a href='aboutus.html'>About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="col">
+      <div style="padding:10px">
+
+        <center>
+          <table id="customers">
+            <tbody >
+            <tr>
+              <th>Credit Hours</th>
+            <th>Select Grade</th>
+            </tr>
+            <tr id="items">
+              <td><input type="number" class="inputItem creditH" id="credithours"  placeholder="CreditHours"></td>
+              <td><select  class="grades inputItem" id="grade" >
+                   <option value> </option>
+                  <option value="4.0">A</option>
+                  <option value="3.0">B</option>
+                  <option value="2.0">C</option>
+                  <option value="1.0">D</option>
+                  <option value="0">F</option>
+                </select></td>
+            </tr>
+            <tr>
+                       </tr>
+            <tr style="background-color: black; color: white;" id="res"></tr>
+          </tbody>
+          </table>
+          <div style="margin-top: 10px;">
+            <input type="button" class="inputBtn" style="float:left" value="Add Course" onclick="addcourse()">
+            <input type="button" class="inputBtn" style="float: right" value="Calculate" onclick="calculateGPS()">
+          </div>
+        
+
+        </center>
+      </div>
+    </div>
+    <div class="col">
+      <img src="./images/Aumimage9.jpg" style="width:100%;margin-top: 9px;">
+    </div>
+  </div>
+
+
+  <footer >
+    <p> Copyright 2021 AUM. All rights reserved.<br>
+    <p>Email: admissions@aum.edu</p>
+    <p>Phone :334-244-3000</p>
+  </footer>
+</body>
+
+</html>
