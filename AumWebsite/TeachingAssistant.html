@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Student</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<script>
+  function Clearform()
+  {
+    $("#FirstName").val("");
+    $("#Email").val("");
+    $("#Mobile").val("");
+    $("#StudentID").val("");
+    $("#Gender").val("Male");
+    $("#Comments").val("");
+  }
+  function savedata()
+  {
+    var std=$("#StudentID").val();
+    var fn=$("#FirstName").val();
+    var mail=$("#Email").val();
+    var mbl=$("#Mobile").val();
+    var gpa=$("#GPA").val();
+    var gender=$("#Gender").val();
+    var comments=$("#Comments").val();
+    if(fn=="" || fn==null || fn==undefined)
+    {
+      alert("Please enter First Name.");
+      return false;
+    }
+   
+    if(mail=="" || mail==null || mail==undefined)
+    {
+      alert("Please enter Mail.");
+      return false;
+    }
+    if(gpa=="" || gpa==null || gpa==undefined)
+    {
+      alert("Please enter GPA.");
+      return false;
+    }
+    else{
+      if(mail.indexOf("@")==-1)
+    {
+      alert("Please enter valid Mail.");
+      return false;
+    }
+    }
+    if(mbl=="" || mbl==null || mbl==undefined)
+    {
+      alert("Please enter Mobile Number.");
+      return false;
+    }
+    var data="<tr>";
+      
+      data=data+"<td>"+std +"</td>";
+       data=data+"<td>"+fn +"</td>";
+       data=data+"<td>"+gpa+"</td>";
+       data=data+"<td>"+mail+"</td>";
+       data=data+"<td>"+mbl+"</td>";
+       data=data+"<td>"+gender+"</td>";
+       data=data+"<td>"+comments+"</td>";
+       data=data+"</tr>";
+      $("#stdtable").html(data);
+      Clearform();
+  }
+
+</script>
+
+<style>
+  .LogoClass {
+    width: 200px;
+    border-radius: 17px;
+    background: #fff;
+    margin-top: 14px;
+    height: 64px;
+  }
+
+  .menu-list {
+    float: right;
+    display: inline-block;
+    text-align: right;
+    right: 5px;
+    height: 85px;
+  }
+</style>
+
+<body>
+  <nav class="nav-content">
+    <div class="nav-logo">
+      <a href="home.html">
+        <img src="./images/headerlogo.PNG" class="LogoClass">
+      </a>
+    </div>
+
+    <div class="menu-list">
+      <ul id="menu1">
+        <li><a href='#'>Customer Service</a></li>
+        <li><a href='#'> 1-800-221-5528</a></li>
+        <li><a href='#'>My Account |</a></li>
+        <li><a href='#'>My Cart(1)</a></li>
+      </ul>
+      <ul id="menu1">
+        <li><a href='#'><i class="fa fa-home"></i> </a></li>
+        <li><a href='#'>| Contact us</a></li>
+        <li><a href='#'><input type="text" placeholder="Search..."><i class="fa fa-search"></i></a></li>
+      </ul>
+      <ul id="menu">
+        <li><a href='home.html'>Home</a></li>
+        <li><a href='Computer.html'>Computer Service</a></li>
+        <li><a href='TeachingAssistant.html'>Teaching Assistant</a></li>
+        <li><a href='ebooks.html'>About Our eBooks</a></li>
+        
+        <li><a href='gpa.html'> GPA calculation</a></li>
+        <li><a href='aboutus.html'>About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <center>
+    <h1>Students Details</h1>
+  </center>
+  <div class="container-fluid">
+    <div class="col">
+      <div style="padding:2px">
+        <div style="border:1px solid #ccc">
+          <div class="container1">
+            <div style="text-align: center;">
+              <h1>Registration</h1>
+            </div>
+            <hr>
+            <label for="StudentID"><b>Student ID</b></label>
+            <input type="text" class="inputItemstd" id="StudentID" placeholder="Student ID" name="StudentID" required>
+            <br>
+            <label for="FirstName"><b>Full Name</b></label>
+            <input type="text" class="inputItemstd"  id="FirstName" placeholder="Full Name" name="FirstName" required>
+            <br>
+           
+            <label for="GPA"><b>GPA</b></label>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="inputItemstd"  id="GPA" placeholder="GPA" name="GPA" required>
+            <br>
+            <label for="Email"><b>    E-Mail</b></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" placeholder="Email" class="inputItemstd"  id="Email" name="Email" required>
+            <br>
+            <label for="Mobile"><b>    Mobile</b></label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number" class="inputItemstd"  placeholder="Mobile" maxlength="10" id="Mobile" name="Mobile" required>
+            <label for="Gender"><b> &nbsp;&nbsp;   Gender</b></label>
+           <select id="Gender" class="inputItemstd" >
+              <option value="Male">Male</option>
+              <option  value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select> <br>
+            <label for="FirstName"><b>Comments</b></label>
+            <textarea style="width: 82%;" class="inputItemstd"  id="Comments" placeholder="Comments" name="Comments" required></textarea>
+            <br>
+
+            <div class="clearfix">
+              <button type="button" class="inputBtn" onclick="Clearform()">Cancel</button>
+              <button type="submit" class="inputBtn" onclick="savedata()">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div style="padding-left: 10px; margin-bottom: 50px;">
+
+        <table class="wikitable" style="text-align: left; width:100%;" border="1" id="customers">
+
+          <thead>
+            <tr>
+              <th>Student ID
+              </th>
+              <th> Full Name
+              </th>
+              <th> GPA
+              </th>
+              <th> Email
+              </th>
+              <th> Mobile
+              </th>
+              <th> Gender
+              </th>
+              <th> Comments
+              </th>
+            </tr>
+           
+          </thead>
+          <tbody id="stdtable">
+            
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <footer >
+    <p> Copyright 2021 AUM. All rights reserved.<br>
+    <p>Email: admissions@aum.edu</p>
+    <p>Phone :334-244-3000</p>
+  </footer>
+</body>
+
+</html>
